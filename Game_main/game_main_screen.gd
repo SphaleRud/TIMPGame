@@ -151,7 +151,7 @@ func calculate_damage():
 				sprite_mapping[line][place_now].destroy()
 				mapping[line][place_now]=null
 	if int(sprite_mapping[2][0].hp.text)<=0:
-		get_tree().change_scene_to_file("res://Game_main/main_menu.tscn.tscn")
+		get_tree().change_scene_to_file("res://Game_main/main_menu.tscn")
 	elif int(sprite_mapping[2][5].hp.text)<=0:
 		get_node("/root/Signals").global_score+=1
 		get_tree().change_scene_to_file("res://Game_main/game_main_screen.tscn")

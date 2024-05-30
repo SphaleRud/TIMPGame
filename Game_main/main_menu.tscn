@@ -1,0 +1,106 @@
+[gd_scene load_steps=7 format=3 uid="uid://dm2s0e3wa3o3i"]
+
+[ext_resource type="Script" path="res://Game_main/main_menu.gd" id="1_nl50x"]
+[ext_resource type="Texture2D" uid="uid://cyau0hrvmejhl" path="res://ARTS/MainMenu.png" id="2_80lsc"]
+[ext_resource type="Texture2D" uid="uid://codv8aalin6mg" path="res://ARTS/Button.png" id="3_inawf"]
+[ext_resource type="Texture2D" uid="uid://u7cfsma64j2c" path="res://ARTS/Icons/LanguageRU.png" id="4_5mhko"]
+[ext_resource type="Texture2D" uid="uid://6e38t14n0exi" path="res://ARTS/Icons/LanguageENG.png" id="5_wclni"]
+[ext_resource type="Texture2D" uid="uid://dqbm14700rsiu" path="res://ARTS/Icons/Support.png" id="6_3vm7a"]
+
+[node name="Main_menu" type="Node2D"]
+script = ExtResource("1_nl50x")
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(906.5, 498)
+scale = Vector2(0.9095, 0.812914)
+texture = ExtResource("2_80lsc")
+
+[node name="buttons" type="Node2D" parent="."]
+
+[node name="start_game" type="Button" parent="buttons"]
+offset_left = 608.0
+offset_top = 49.0
+offset_right = 1312.0
+offset_bottom = 305.0
+theme_override_font_sizes/font_size = 40
+text = "Начать новую игру"
+icon = ExtResource("3_inawf")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="load_game" type="Button" parent="buttons"]
+offset_left = 632.0
+offset_top = 339.0
+offset_right = 1298.0
+offset_bottom = 587.0
+theme_override_font_sizes/font_size = 40
+text = "Загрузить игру"
+icon = ExtResource("3_inawf")
+flat = true
+icon_alignment = 1
+expand_icon = true
+metadata/_edit_group_ = true
+
+[node name="exit_game" type="Button" parent="buttons"]
+offset_left = 634.0
+offset_top = 603.0
+offset_right = 1282.0
+offset_bottom = 849.0
+theme_override_font_sizes/font_size = 40
+text = "Выйти из игры"
+icon = ExtResource("3_inawf")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="rus" type="Button" parent="buttons"]
+offset_left = 28.0
+offset_top = 748.0
+offset_right = 341.0
+offset_bottom = 946.0
+theme_override_font_sizes/font_size = 70
+text = "
+"
+icon = ExtResource("4_5mhko")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="eng" type="Button" parent="buttons"]
+offset_left = 1457.0
+offset_top = 764.0
+offset_right = 1815.0
+offset_bottom = 973.0
+theme_override_font_sizes/font_size = 70
+icon = ExtResource("5_wclni")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="obrat" type="Button" parent="buttons"]
+offset_left = 1591.0
+offset_top = -14.0
+offset_right = 1884.0
+offset_bottom = 150.0
+icon = ExtResource("6_3vm7a")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Label" type="Label" parent="buttons/obrat"]
+layout_mode = 0
+offset_left = -322.0
+offset_top = 51.0
+offset_right = 182.0
+offset_bottom = 154.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 40
+text = "tech.sup95@mail.ru"
+
+[connection signal="pressed" from="buttons/start_game" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="buttons/load_game" to="." method="_on_load_game_pressed"]
+[connection signal="pressed" from="buttons/exit_game" to="." method="_on_exit_game_pressed"]
+[connection signal="pressed" from="buttons/rus" to="." method="_on_rus_pressed"]
+[connection signal="pressed" from="buttons/eng" to="." method="_on_eng_pressed"]

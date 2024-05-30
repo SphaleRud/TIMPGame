@@ -16,6 +16,5 @@ func recive_damage(dmg):
 	hp.text=str(current_hp)
 
 func destroy():
-	hp.text=""
 	$base_texture.texture=null
 	$hp.visible=false
