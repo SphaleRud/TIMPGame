@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CardPile" load_steps=6 format=3 uid="uid://dhky73ebado0i"]
+
+[ext_resource type="Resource" uid="uid://drrclultf1eot" path="res://Characters/Cards/poor.tres" id="1_p1rxo"]
+[ext_resource type="Script" path="res://Custom_resources/card_pile.gd" id="1_q5kb4"]
+[ext_resource type="Resource" uid="uid://f30qedd8hi0q" path="res://Characters/Cards/knight.tres" id="2_1bix3"]
+[ext_resource type="Resource" uid="uid://ck6apx5xi4exn" path="res://Characters/Cards/mage.tres" id="3_dqlh5"]
+[ext_resource type="Resource" uid="uid://yd2n2bul5irc" path="res://Characters/Cards/engi.tres" id="4_ju3f1"]
+
+[resource]
+script = ExtResource("1_q5kb4")
+cards = Array[Resource("res://Custom_resources/card.gd")]([ExtResource("1_p1rxo"), ExtResource("2_1bix3"), ExtResource("3_dqlh5"), ExtResource("4_ju3f1"), ExtResource("1_p1rxo"), ExtResource("2_1bix3")])

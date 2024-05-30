@@ -1,0 +1,185 @@
+[gd_scene load_steps=9 format=3 uid="uid://crp4xcucs7ftn"]
+
+[ext_resource type="Script" path="res://Game_main/game_main_screen.gd" id="1_pmxt8"]
+[ext_resource type="Resource" uid="uid://cdjs0eg6xf44p" path="res://Game_main/Game_start/enemy_deck.tres" id="2_8m6h6"]
+[ext_resource type="PackedScene" uid="uid://du0hqspo5hgaa" path="res://Game_main/back_ground.tscn" id="2_gilsq"]
+[ext_resource type="PackedScene" uid="uid://d15m2hl5mwvs5" path="res://Game_main/Game_start/empty_space.tscn" id="3_biyf4"]
+[ext_resource type="Script" path="res://Game_main/UI/Hand.gd" id="3_qc0ex"]
+[ext_resource type="PackedScene" uid="uid://c0hx6akfo3xtk" path="res://Game_main/Game_start/base_building.tscn" id="4_fafb5"]
+[ext_resource type="Resource" uid="uid://dhky73ebado0i" path="res://Game_main/Game_start/deck.tres" id="6_iotdt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n6glj"]
+size = Vector2(1754, 183)
+
+[node name="Game_main_screen" type="Node2D"]
+script = ExtResource("1_pmxt8")
+deck_enemy = ExtResource("2_8m6h6")
+
+[node name="BackGround" parent="." instance=ExtResource("2_gilsq")]
+
+[node name="Deck_button" type="Button" parent="."]
+offset_left = 1421.0
+offset_top = 819.0
+offset_right = 1548.0
+offset_bottom = 955.0
+text = "ВЗЯТЬ КАРТУ
+"
+
+[node name="End_turn_button" type="Button" parent="."]
+offset_left = 1647.0
+offset_top = 819.0
+offset_right = 1774.0
+offset_bottom = 955.0
+text = "КОНЕЦ ХОДА
+"
+
+[node name="Out_Hand" type="Node2D" parent="."]
+
+[node name="Line_1" type="Area2D" parent="Out_Hand"]
+position = Vector2(47, 0)
+collision_layer = 8
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Out_Hand/Line_1"]
+position = Vector2(913, 160)
+shape = SubResource("RectangleShape2D_n6glj")
+
+[node name="Building_player" type="Marker2D" parent="Out_Hand/Line_1"]
+position = Vector2(344, 170)
+
+[node name="Empty_space" parent="Out_Hand/Line_1/Building_player" instance=ExtResource("3_biyf4")]
+
+[node name="Unit_player" type="Marker2D" parent="Out_Hand/Line_1"]
+position = Vector2(700, 168)
+
+[node name="Empty_space" parent="Out_Hand/Line_1/Unit_player" instance=ExtResource("3_biyf4")]
+position = Vector2(-2, 0)
+
+[node name="Unit_enemy" type="Marker2D" parent="Out_Hand/Line_1"]
+position = Vector2(1055, 168)
+
+[node name="Empty_space" parent="Out_Hand/Line_1/Unit_enemy" instance=ExtResource("3_biyf4")]
+
+[node name="Building_enemy" type="Marker2D" parent="Out_Hand/Line_1"]
+position = Vector2(1377, 172)
+
+[node name="Empty_space" parent="Out_Hand/Line_1/Building_enemy" instance=ExtResource("3_biyf4")]
+
+[node name="Base_building_player" parent="Out_Hand" instance=ExtResource("4_fafb5")]
+position = Vector2(133, 246)
+
+[node name="Base_building_enemy" parent="Out_Hand" instance=ExtResource("4_fafb5")]
+position = Vector2(1759, 239)
+
+[node name="Line_2" type="Area2D" parent="Out_Hand"]
+position = Vector2(47, 245)
+collision_layer = 8
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Out_Hand/Line_2"]
+position = Vector2(913, 160)
+shape = SubResource("RectangleShape2D_n6glj")
+
+[node name="Building_player" type="Marker2D" parent="Out_Hand/Line_2"]
+position = Vector2(344, 170)
+
+[node name="Empty_space" parent="Out_Hand/Line_2/Building_player" instance=ExtResource("3_biyf4")]
+
+[node name="Unit_player" type="Marker2D" parent="Out_Hand/Line_2"]
+position = Vector2(700, 168)
+
+[node name="Empty_space" parent="Out_Hand/Line_2/Unit_player" instance=ExtResource("3_biyf4")]
+position = Vector2(-2, 0)
+
+[node name="Unit_enemy" type="Marker2D" parent="Out_Hand/Line_2"]
+position = Vector2(1055, 168)
+
+[node name="Empty_space" parent="Out_Hand/Line_2/Unit_enemy" instance=ExtResource("3_biyf4")]
+
+[node name="Building_enemy" type="Marker2D" parent="Out_Hand/Line_2"]
+position = Vector2(1377, 172)
+
+[node name="Empty_space" parent="Out_Hand/Line_2/Building_enemy" instance=ExtResource("3_biyf4")]
+
+[node name="Line_3" type="Area2D" parent="Out_Hand"]
+position = Vector2(47, 479)
+collision_layer = 8
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Out_Hand/Line_3"]
+position = Vector2(913, 160)
+shape = SubResource("RectangleShape2D_n6glj")
+
+[node name="Building_player" type="Marker2D" parent="Out_Hand/Line_3"]
+position = Vector2(344, 170)
+
+[node name="Empty_space" parent="Out_Hand/Line_3/Building_player" instance=ExtResource("3_biyf4")]
+
+[node name="Unit_player" type="Marker2D" parent="Out_Hand/Line_3"]
+position = Vector2(700, 168)
+
+[node name="Empty_space" parent="Out_Hand/Line_3/Unit_player" instance=ExtResource("3_biyf4")]
+position = Vector2(-2, 0)
+
+[node name="Unit_enemy" type="Marker2D" parent="Out_Hand/Line_3"]
+position = Vector2(1055, 168)
+
+[node name="Empty_space" parent="Out_Hand/Line_3/Unit_enemy" instance=ExtResource("3_biyf4")]
+
+[node name="Building_enemy" type="Marker2D" parent="Out_Hand/Line_3"]
+position = Vector2(1377, 172)
+
+[node name="Empty_space" parent="Out_Hand/Line_3/Building_enemy" instance=ExtResource("3_biyf4")]
+
+[node name="BattleUI" type="CanvasLayer" parent="." groups=["ui_layer"]]
+
+[node name="Hand" type="HBoxContainer" parent="BattleUI"]
+offset_left = 12.0
+offset_top = 796.0
+offset_right = 1318.0
+offset_bottom = 993.0
+mouse_filter = 2
+alignment = 1
+script = ExtResource("3_qc0ex")
+deck = ExtResource("6_iotdt")
+
+[node name="Turn_count" type="Label" parent="BattleUI"]
+offset_left = 408.0
+offset_top = 3.0
+offset_right = 502.0
+offset_bottom = 58.0
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Draw_count" type="Label" parent="BattleUI"]
+offset_left = 224.0
+offset_top = 3.0
+offset_right = 319.0
+offset_bottom = 58.0
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Exit_button" type="Button" parent="BattleUI"]
+offset_left = 1222.0
+offset_top = 2.0
+offset_right = 1821.0
+offset_bottom = 65.0
+theme_override_font_sizes/font_size = 40
+text = "Выход"
+
+[node name="Best_score" type="Label" parent="BattleUI"]
+offset_left = 660.0
+offset_top = 4.0
+offset_right = 1105.0
+offset_bottom = 64.0
+theme_override_font_sizes/font_size = 40
+text = "
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Deck_button" to="." method="_on_deck_pressed"]
+[connection signal="pressed" from="End_turn_button" to="." method="_on_end_turn_button_pressed"]
+[connection signal="pressed" from="BattleUI/Exit_button" to="." method="_on_exit_button_pressed"]

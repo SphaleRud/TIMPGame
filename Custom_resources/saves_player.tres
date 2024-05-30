@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="info_game" load_steps=2 format=3 uid="uid://dycjssgvlg868"]
+
+[ext_resource type="Script" path="res://Custom_resources/Save_info.gd" id="1_tvc7a"]
+
+[resource]
+script = ExtResource("1_tvc7a")
+score = 0
+high_score = {
+"date": "",
+"value": 0
+}

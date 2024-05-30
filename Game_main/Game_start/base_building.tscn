@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0hx6akfo3xtk"]
+
+[ext_resource type="Script" path="res://Game_main/Game_start/base_building.gd" id="1_w8a01"]
+[ext_resource type="Texture2D" uid="uid://c6eel4il3cclj" path="res://ARTS/Icons/Hearth.png" id="2_mwa05"]
+
+[node name="Base_building" type="Node2D"]
+script = ExtResource("1_w8a01")
+
+[node name="base_texture" type="Sprite2D" parent="."]
+
+[node name="hp" type="Sprite2D" parent="."]
+position = Vector2(-44, 190)
+scale = Vector2(10.8506, 10.9714)
+texture = ExtResource("2_mwa05")
+
+[node name="text_hp" type="Label" parent="."]
+offset_left = -86.0
+offset_top = 24.0
+offset_right = 94.0
+offset_bottom = 148.0
+theme_override_colors/font_color = Color(0.658824, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 80
+text = "10
+"
+metadata/_edit_use_anchors_ = true

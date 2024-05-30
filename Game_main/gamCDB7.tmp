@@ -1,0 +1,81 @@
+[gd_scene load_steps=9 format=3 uid="uid://crp4xcucs7ftn"]
+
+[ext_resource type="Script" path="res://Game_main/game_main_screen.gd" id="1_pmxt8"]
+[ext_resource type="PackedScene" uid="uid://du0hqspo5hgaa" path="res://Game_main/back_ground.tscn" id="2_gilsq"]
+[ext_resource type="PackedScene" uid="uid://cyn8xi1gg8ato" path="res://Cards_main/card_default.tscn" id="3_plj23"]
+[ext_resource type="Script" path="res://Game_main/UI/Hand.gd" id="3_qc0ex"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ko6tj"]
+size = Vector2(1816, 671)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n6glj"]
+size = Vector2(1822, 207)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_17h2t"]
+size = Vector2(1816, 216.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8txkl"]
+size = Vector2(1813.5, 231)
+
+[node name="Game_main_screen" type="Node2D"]
+script = ExtResource("1_pmxt8")
+
+[node name="BackGround" parent="." instance=ExtResource("2_gilsq")]
+
+[node name="Out_Hand" type="Node2D" parent="."]
+
+[node name="DropCardArea" type="Area2D" parent="Out_Hand"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Out_Hand/DropCardArea"]
+position = Vector2(907, 401.5)
+shape = SubResource("RectangleShape2D_ko6tj")
+
+[node name="Line_1" type="Area2D" parent="Out_Hand"]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Out_Hand/Line_1"]
+position = Vector2(909, 171.5)
+shape = SubResource("RectangleShape2D_n6glj")
+
+[node name="Line_2" type="Area2D" parent="Out_Hand"]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Out_Hand/Line_2"]
+position = Vector2(910, 392.75)
+shape = SubResource("RectangleShape2D_17h2t")
+
+[node name="Line_3" type="Area2D" parent="Out_Hand"]
+position = Vector2(5, 516)
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Out_Hand/Line_3"]
+position = Vector2(904.25, 106.5)
+shape = SubResource("RectangleShape2D_8txkl")
+
+[node name="Deck_button" type="Button" parent="."]
+offset_left = 1523.0
+offset_top = 798.0
+offset_right = 1650.0
+offset_bottom = 934.0
+text = "ВЗЯТЬ КАРТУ
+"
+
+[node name="BattleUI" type="CanvasLayer" parent="." groups=["ui_layer"]]
+
+[node name="Hand" type="HBoxContainer" parent="BattleUI"]
+offset_left = 8.0
+offset_top = 770.0
+offset_right = 1314.0
+offset_bottom = 967.0
+mouse_filter = 2
+alignment = 1
+script = ExtResource("3_qc0ex")
+
+[node name="Card_UI" parent="BattleUI/Hand" instance=ExtResource("3_plj23")]
+layout_mode = 2
+
+[node name="Card_UI2" parent="BattleUI/Hand" instance=ExtResource("3_plj23")]
+layout_mode = 2
+
+[connection signal="pressed" from="Deck_button" to="." method="_on_deck_pressed"]

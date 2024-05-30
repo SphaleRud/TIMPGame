@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://du0hqspo5hgaa"]
+
+[ext_resource type="Texture2D" uid="uid://fqw4i80ns1ir" path="res://ARTS/Field.png" id="1_nock5"]
+
+[node name="BackGround" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2, 2)
+scale = Vector2(0.9095, 0.833609)
+texture = ExtResource("1_nock5")
+centered = false

@@ -1,0 +1,130 @@
+[gd_scene load_steps=10 format=3 uid="uid://cyn8xi1gg8ato"]
+
+[ext_resource type="Script" path="res://Cards_main/card_default.gd" id="1_21cxg"]
+[ext_resource type="Theme" uid="uid://bnadwt5ac7x6v" path="res://Cards_main/Card_theme.tres" id="2_al21r"]
+[ext_resource type="Texture2D" uid="uid://kvjdxjtyeadp" path="res://ARTS/CARDS_SAMPLE/Card.png" id="2_wcu8d"]
+[ext_resource type="Script" path="res://Cards_main/card_state_machine.gd" id="3_di1i5"]
+[ext_resource type="Script" path="res://Cards_main/card_base_State.gd" id="4_exvi0"]
+[ext_resource type="Script" path="res://Cards_main/Card_State/card_clicked_state.gd" id="5_3aneb"]
+[ext_resource type="Script" path="res://Cards_main/card_dragging_state.gd" id="6_jdjfp"]
+[ext_resource type="Script" path="res://Cards_main/card_realesed_state.gd" id="7_6l32d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4jpd5"]
+size = Vector2(113.5, 158.5)
+
+[node name="Card_UI" type="Control"]
+custom_minimum_size = Vector2(140, 40)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1680.0
+offset_bottom = -780.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_21cxg")
+
+[node name="Color_UI" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -1.0
+offset_top = 2.23682
+offset_right = 121.0
+offset_bottom = 176.237
+mouse_filter = 2
+color = Color(0, 0.952941, 0.435294, 1)
+
+[node name="State" type="Label" parent="."]
+layout_mode = 0
+offset_top = 2.0
+offset_right = 120.0
+offset_bottom = 146.0
+text = "STATE
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Drop_Point_detector" type="Area2D" parent="."]
+position = Vector2(105, 200.237)
+collision_mask = 8
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Drop_Point_detector"]
+position = Vector2(-45, -115.237)
+shape = SubResource("RectangleShape2D_4jpd5")
+
+[node name="Card_sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(59, 91)
+scale = Vector2(1.85938, 2.25967)
+texture = ExtResource("2_wcu8d")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = -13.0
+offset_top = 137.0
+offset_right = 137.0
+offset_bottom = 186.0
+size_flags_stretch_ratio = 0.0
+mouse_filter = 2
+alignment = 1
+metadata/_edit_group_ = true
+
+[node name="HP_Unit" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_al21r")
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 26
+text = "HP"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HP_Building" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_al21r")
+theme_override_colors/font_color = Color(0.313726, 0.729412, 0.286275, 1)
+theme_override_font_sizes/font_size = 26
+text = "HP2
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ATTACK" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_al21r")
+theme_override_colors/font_color = Color(0.984314, 0, 0.254902, 1)
+theme_override_font_sizes/font_size = 26
+text = "ATK"
+vertical_alignment = 1
+
+[node name="Card_state_machine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_di1i5")
+initial_state = NodePath("CardBaseState")
+
+[node name="CardBaseState" type="Node" parent="Card_state_machine"]
+script = ExtResource("4_exvi0")
+
+[node name="CardClickedState" type="Node" parent="Card_state_machine"]
+script = ExtResource("5_3aneb")
+state = 1
+
+[node name="CardDraggingState" type="Node" parent="Card_state_machine"]
+script = ExtResource("6_jdjfp")
+state = 2
+
+[node name="CardRealesedState" type="Node" parent="Card_state_machine"]
+script = ExtResource("7_6l32d")
+state = 4
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(60, 76)
+scale = Vector2(1.65625, 2.125)
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="area_entered" from="Drop_Point_detector" to="." method="_on_drop_point_detector_area_entered"]
+[connection signal="area_exited" from="Drop_Point_detector" to="." method="_on_drop_point_detector_area_exited"]
